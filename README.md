@@ -151,45 +151,162 @@ Before you begin, ensure you have the following installed:
 
 ```
 devflow/
-├── public/                      # Static assets
+├── public/                           # Static assets
+│   └── .well-known/
+│       └── farcaster.json            # Farcaster configuration
+│
 ├── src/
-│   ├── app/                     # Next.js app directory
-│   │   ├── api/                 # API routes
-│   │   │   ├── fix-bug/         # AI bug fixing endpoint
-│   │   │   ├── health/          # Health check endpoint
-│   │   │   ├── logger/          # Logging endpoint
-│   │   │   ├── me/              # User endpoint
-│   │   │   └── proxy/           # API proxy
-│   │   ├── dashboard/           # Dashboard page
-│   │   ├── layout.tsx           # Root layout
-│   │   ├── page.tsx             # Landing page
-│   │   └── globals.css          # Global styles
-│   ├── components/              # React components
-│   │   ├── ui/                  # Reusable UI components
-│   │   ├── activity-detail-modal.tsx
-│   │   ├── analytics-charts.tsx
-│   │   ├── architecture-diagram.tsx
-│   │   ├── code-diff-viewer.tsx
-│   │   ├── code-fixer.tsx       # Main AI code fixer
-│   │   ├── demo-section.tsx
-│   │   ├── enhanced-live-activity-feed.tsx
-│   │   ├── export-report-dialog.tsx
-│   │   ├── features-grid.tsx
-│   │   ├── hero-section.tsx
-│   │   ├── live-activity-feed.tsx
-│   │   ├── mobile-nav.tsx
-│   │   ├── stats-section.tsx
-│   │   └── ...
-│   ├── hooks/                   # Custom React hooks
-│   ├── lib/                     # Utility libraries
-│   │   ├── buggy-examples.ts    # Example buggy code
-│   │   ├── logger.ts            # Logging utility
-│   │   └── utils.ts             # Helper functions
-│   └── utils/                   # Additional utilities
-├── package.json                 # Dependencies
-├── tsconfig.json                # TypeScript config
-├── tailwind.config.js           # Tailwind config
-└── README.md                    # This file
+│   ├── app/                          # Next.js app directory
+│   │   ├── api/                      # API routes (12 endpoints)
+│   │   │   ├── analyze-context/      # ✨ Context analysis (Phase 2)
+│   │   │   │   └── route.ts
+│   │   │   ├── explain-code/         # ✨ Code explanation (Option 3)
+│   │   │   │   └── route.ts
+│   │   │   ├── fix-bug/              # AI bug fixing endpoint
+│   │   │   │   └── route.ts
+│   │   │   ├── generate-suggestions/ # ✨ Multiple fixes (Option 3)
+│   │   │   │   └── route.ts
+│   │   │   ├── health/               # Health check endpoint
+│   │   │   │   └── route.ts
+│   │   │   ├── logger/               # Logging endpoint
+│   │   │   │   └── route.ts
+│   │   │   ├── me/                   # User endpoint (Farcaster)
+│   │   │   │   └── route.ts
+│   │   │   ├── proxy/                # API proxy
+│   │   │   │   └── route.ts
+│   │   │   ├── save-feedback/        # ✨ Feedback system (Phase 2)
+│   │   │   │   └── route.ts
+│   │   │   └── scan-security/        # ✨ Security scanner (Option 3)
+│   │   │       └── route.ts
+│   │   │
+│   │   ├── dashboard/                # Dashboard page
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── fonts/                    # Custom fonts
+│   │   │   ├── GeistMonoVF.woff
+│   │   │   └── GeistVF.woff
+│   │   │
+│   │   ├── layout.tsx                # Root layout
+│   │   ├── page.tsx                  # Landing page
+│   │   ├── not-found.tsx             # 404 page
+│   │   ├── globals.css               # Global styles
+│   │   └── favicon.ico               # Favicon
+│   │
+│   ├── components/                   # React components (35+ files)
+│   │   ├── ui/                       # ShadCN UI components (50+ files)
+│   │   │   ├── accordion.tsx
+│   │   │   ├── alert-dialog.tsx
+│   │   │   ├── alert.tsx
+│   │   │   ├── aspect-ratio.tsx
+│   │   │   ├── avatar.tsx
+│   │   │   ├── badge.tsx
+│   │   │   ├── breadcrumb.tsx
+│   │   │   ├── button.tsx
+│   │   │   ├── calendar.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── carousel.tsx
+│   │   │   ├── chart.tsx
+│   │   │   ├── checkbox.tsx
+│   │   │   ├── collapsible.tsx
+│   │   │   ├── command.tsx
+│   │   │   ├── context-menu.tsx
+│   │   │   ├── dialog.tsx
+│   │   │   ├── drawer.tsx
+│   │   │   ├── dropdown-menu.tsx
+│   │   │   ├── form.tsx
+│   │   │   ├── hover-card.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── input-otp.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   ├── menubar.tsx
+│   │   │   ├── navigation-menu.tsx
+│   │   │   ├── pagination.tsx
+│   │   │   ├── popover.tsx
+│   │   │   ├── progress.tsx
+│   │   │   ├── radio-group.tsx
+│   │   │   ├── resizable.tsx
+│   │   │   ├── scroll-area.tsx
+│   │   │   ├── select.tsx
+│   │   │   ├── separator.tsx
+│   │   │   ├── sheet.tsx
+│   │   │   ├── sidebar.tsx
+│   │   │   ├── skeleton.tsx
+│   │   │   ├── slider.tsx
+│   │   │   ├── sonner.tsx
+│   │   │   ├── switch.tsx
+│   │   │   ├── table.tsx
+│   │   │   ├── tabs.tsx
+│   │   │   ├── textarea.tsx
+│   │   │   ├── toggle-group.tsx
+│   │   │   ├── toggle.tsx
+│   │   │   └── tooltip.tsx
+│   │   │
+│   │   ├── FarcasterManifestSigner.tsx    # Farcaster integration
+│   │   ├── FarcasterToastManager.tsx      # Toast notifications
+│   │   ├── FarcasterWrapper.tsx           # Farcaster wrapper
+│   │   ├── activity-detail-modal.tsx      # Activity details
+│   │   ├── analytics-charts.tsx           # Analytics visualizations
+│   │   ├── analytics-dashboard.tsx        # ✨ Analytics hub (Option 2)
+│   │   ├── architecture-diagram.tsx       # Architecture visualization
+│   │   ├── bug-statistics-chart.tsx       # ✨ Bug stats (Option 2)
+│   │   ├── code-diff-viewer.tsx           # Basic diff viewer
+│   │   ├── code-explanation.tsx           # ✨ Bug explanation (Option 3)
+│   │   ├── code-fixer.tsx                 # 🎯 Main AI code fixer
+│   │   ├── context-analyzer.tsx           # ✨ Context analysis (Phase 2)
+│   │   ├── demo-section.tsx               # Demo section
+│   │   ├── enhanced-code-diff-viewer.tsx  # ✨ Split view diff (Option 1)
+│   │   ├── enhanced-live-activity-feed.tsx # Live activity feed
+│   │   ├── export-report-dialog.tsx       # Export dialog
+│   │   ├── features-grid.tsx              # Features grid
+│   │   ├── feedback-system.tsx            # ✨ User feedback (Phase 2)
+│   │   ├── fix-history.tsx                # ✨ Fix history (Option 1)
+│   │   ├── hero-section.tsx               # Hero section
+│   │   ├── language-breakdown-chart.tsx   # ✨ Language stats (Option 2)
+│   │   ├── live-activity-feed.tsx         # Activity feed
+│   │   ├── mobile-nav.tsx                 # Mobile navigation
+│   │   ├── model-selector.tsx             # ✨ AI model config (Phase 2)
+│   │   ├── multi-file-uploader.tsx        # ✨ Multi-file upload (Phase 2)
+│   │   ├── multiple-suggestions.tsx       # ✨ Multiple fixes (Option 3)
+│   │   ├── ready-notifier.tsx             # Ready state notifier
+│   │   ├── response-logger.tsx            # Response logger
+│   │   ├── security-scanner.tsx           # ✨ Security scan (Option 3)
+│   │   ├── stats-section.tsx              # Stats section
+│   │   ├── success-metrics.tsx            # ✨ Success tracking (Option 2)
+│   │   └── time-saved-calculator.tsx      # ✨ Time savings (Option 2)
+│   │
+│   ├── hooks/                        # Custom React hooks
+│   │   ├── use-mobile.tsx            # Mobile detection
+│   │   ├── useAddMiniApp.ts          # Farcaster mini-app
+│   │   ├── useIsInFarcaster.ts       # Farcaster context
+│   │   ├── useManifestStatus.ts      # Manifest status
+│   │   └── useQuickAuth.tsx          # Quick auth
+│   │
+│   ├── lib/                          # Utility libraries
+│   │   ├── analytics.ts              # ✨ Analytics engine (Option 2)
+│   │   ├── buggy-examples.ts         # Example buggy code (8 examples)
+│   │   ├── error-handler.ts          # ✨ Error handling (Option 1)
+│   │   ├── logger.ts                 # Logging utility
+│   │   └── utils.ts                  # Helper functions
+│   │
+│   ├── utils/                        # Additional utilities
+│   │   └── manifestStatus.ts         # Manifest status utility
+│   │
+│   └── middleware.ts                 # Next.js middleware
+│
+├── .gitignore                        # Git ignore rules
+├── .eslintrc.json                    # ESLint configuration
+├── components.json                   # ShadCN components config
+├── next.config.ts                    # Next.js configuration
+├── package.json                      # Dependencies
+├── postcss.config.mjs                # PostCSS configuration
+├── tailwind.config.ts                # Tailwind CSS configuration
+├── tsconfig.json                     # TypeScript configuration
+├── README.md                         # Main documentation
+├── DOCUMENTATION_INDEX.md            # Documentation index
+├── SETUP_GUIDE.md                    # Setup guide
+├── HOW_TO_BUILD_LOCALLY.md           # Local build guide
+└── FILE_STRUCTURE.md                 # File structure guide
 ```
 
 ---
