@@ -32,7 +32,7 @@ export default function RootLayout({
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
-            {/* Do not remove this component, we use it to notify the parent that the mini-app is ready */}
+            {/* Necessary component */}
             <ReadyNotifier />
             
       <FarcasterWrapper>
@@ -46,8 +46,6 @@ export default function RootLayout({
 }
 
 export const metadata: Metadata = {
-        title: "Kita Build",
-        description: "Collaborate and build projects together seamlessly with our intuitive and fast web app, designed to enhance teamwork and productivity.",
-        other: { "fc:frame": JSON.stringify({"version":"next","imageUrl":"https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_6914c4b8-91f7-4a21-ba04-687a5c3cff98-1V7rzBAcUjMKDyOr5ntMUh5Uox2pgE","button":{"title":"Open with Ohara","action":{"type":"launch_frame","name":"Kita Build","url":"https://egg-came-389.app.ohara.ai","splashImageUrl":"https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/farcaster/splash_images/splash_image1.svg","splashBackgroundColor":"#ffffff"}}}
-        ) }
+        title: "DevFlow AI",
+        description: "Autonomous Debugging That Never Sleeps"
     };
