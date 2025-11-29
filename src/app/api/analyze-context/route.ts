@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
 
     // Initialize OpenAI client inside the function
     const openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,  // ✅ NOW USING ENV VARIABLE (was hardcoded before)
+      apiKey: process.env.OPENAI_API_KEY,
     });
 
     // Build context from all files
