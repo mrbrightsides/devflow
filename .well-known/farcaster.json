@@ -1,21 +1,23 @@
 {
   "miniapp": {
     "version": "1",
-    "name": "Kita Build",
+    "name": "DevFlow.AI",
     "iconUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_6914c4b8-91f7-4a21-ba04-687a5c3cff98-1V7rzBAcUjMKDyOr5ntMUh5Uox2pgE",
-    "homeUrl": "https://egg-came-389.app.ohara.ai",
+    "homeUrl": "https://devflow-elpeef.vercel.app/",
     "imageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_6914c4b8-91f7-4a21-ba04-687a5c3cff98-1V7rzBAcUjMKDyOr5ntMUh5Uox2pgE",
-    "buttonTitle": "Open with Ohara",
-    "splashImageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/farcaster/splash_images/splash_image1.svg",
+    "buttonTitle": "Launch DevFlow.AI",
+    "splashImageUrl": "https://i.imgur.com/Rd8GyFU.png",
     "splashBackgroundColor": "#ffffff",
     "tags": [
-      "ohara",
-      "mini-app",
+      "developer-tools",
+      "productivity",
+      "ai-automation",
+      "debugging",
       "base",
       "farcaster"
     ],
-    "primaryCategory": "entertainment",
-    "ogTitle": "Kita Build",
+    "primaryCategory": "productivity",
+    "ogTitle": "DevFlow.AI - AI-Powered Developer Productivity",
     "ogImageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_6914c4b8-91f7-4a21-ba04-687a5c3cff98-1V7rzBAcUjMKDyOr5ntMUh5Uox2pgE"
   },
   "baseBuilder": {
