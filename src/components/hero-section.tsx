@@ -83,7 +83,16 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button 
+              size="lg" 
+              className="bg-blue-600 hover:bg-blue-700 text-white"
+              onClick={() => {
+                document.getElementById('demo-video')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'center'
+                });
+              }}
+            >
               <Zap className="w-5 h-5 mr-2" />
               Watch Demo
             </Button>
