@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: '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',
-});
-
 interface FileData {
   name: string;
   content: string;
@@ -22,6 +18,11 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    // Initialize OpenAI client inside the function
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
 
     // Build context from all files
     const contextPrompt = buildContextPrompt(files);
