@@ -482,7 +482,7 @@ The OpenAI API key is currently hardcoded in `src/app/api/fix-bug/route.ts`:
 
 ```typescript
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: 'sk-proj-your-actual-key-here',
 });
 ```
 
